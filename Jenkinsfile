@@ -12,7 +12,7 @@ pipeline{
       stage('Git checkout'){
         steps{
           script{
-            git branch: 'main', url: 'https://github.com/Shashank1518/argocd-CI-CDproject.git'  
+            git branch: 'main', url: 'https://github.com/Shashank1518/argocd-CI-CDproject-CDpipeline.git'  
           }
         }   
       }
@@ -33,13 +33,13 @@ pipeline{
           steps{
             script{
               sh """
-                git config --global user.name "shashank1518"
+                git config --global user.name "Shashank1518"
                 git config --global user.email "shashanklm007@gmail.com" 
                 git add deployment.yml
                 git commit -m "updated the deployment file"
                  """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                  sh "git push https://github.com/Shashank1518/argocd-CI-CDproject.git main"
+                  sh "https://github.com/Shashank1518/argocd-CI-CDproject-CDpipeline.git main"
                 }
             }
           }
